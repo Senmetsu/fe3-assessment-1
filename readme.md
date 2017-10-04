@@ -1,73 +1,67 @@
-# ![Assessment 1][banner]
+# Assesment-1
 
-This repository can be forked for [**assessment 1**][a1] of [Frontend 3][fe3]
-at [**@CMDA**][cmda].
+## Beschrijving
+De opdracht houdt in dat je een dataset pakt en die visueel maakt met D3.js
 
-## TODO
+## Structuur
+Ik vindt het belangrijk dat er een structuur is die zichzelf uitlegt.
 
-*   [ ] [GitHub Pages](#github-pages)
-*   [ ] [Metadata](#metadata)
-*   [ ] [Workflow](#workflow)
-*   [ ] Replace this document in your fork with your own readme!
+* index.html
+* css/style.css
+* js/d3.js
+* csv/temp-data.csv
+* readme.md
 
-## GitHub Pages
+## Graph/chart keuze
+Aan de hand van mijn dataset (temperatuur) ben ik gaan kijken welke
+graph het beste erbij past. Ik kwam uit op de [line chart.] (https://bl.ocks.org/mbostock/3883245). Bij deze keuze was er geen V3, en kon ik alles in V4 aanpassen.
 
-Set up [GitHub Pages][pages] for this fork through the **Settings** pane.  Use
-the **Master branch** as its source.
+## Debuggen
+Ik moest meteen de dataset inplementatie veranderen naar mijn bijbehorde dataset.
 
-## Metadata
+van
+```
+d3.tsv("data.tsv", function(d) {
+  d.date = parseTime(d.date);
+  d.close = +d.close;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+```
+naar
 
-Edit the **description** and **url** of your repository.  Click on edit above
-the green Clone or download button and fill in your correct information.
+```
+d3.csv("temp-data.csv", function(d) {
+      d.date = parseTime(d.date); // parse de tijd van date.
+      d.temp = +d.temp; // parse de tijd van date.
+      console.log(d); // een kleine console log om te kijken wat hij met de data doet.
+      return d;
+    }, function(error, data) { // handeld errors af.
+      if (error) throw error;
+```
 
-## Workflow
+^^^ Hierna kreeg ik errors dat de nummers in mijn dataset NaN waren.
 
-How you go about your project is up to you other than that it must meet the
-given requirements.  The following steps may help to tackle this challenge
-though.
+Het lastigste stukje
+Was het vinden van de juiste manier om de datum te parsen.
+```
+var parseTime = d3.timeParse("%Y%m%d");
+```
 
-###### Explore
+## Bronnen
+* https://github.com/d3/d3/blob/master/API.md#time-formats-d3-time-format
+* https://stackoverflow.com/questions/39369789/how-to-solve-typeerror-d3-time-is-undefined
+* https://bl.ocks.org/mbostock/3883245
+* https://github.com/d3/d3-dsv
+* https://github.com/d3/d3-time-format
+* https://github.com/d3/d3-time-format/blob/master/README.md#timeParse
 
-Explore the [data][].  Make sense of the rows, columns, and what they contain.
-Investigate interesting aspects and possible outcomes.  Figure out what type of
-chart you want and sketch your visualisation.
+## Features
+* d3-dsv - parse tab-separated values
+* d3-time-format - date parsing and formatting
+* d3-scale - position encodings
+* d3-array - data processing
+* d3-axis - axes
+* d3-shape - lines
 
-List the features needed to make your chart work and make sure they match our
-[rubric][].  For example, pie charts or donut charts often lack features needed
-to get good grades in the **application of subject matter** category.  You must
-compensate with other useful features to get a good grade in this case.
-
-Pick the most enticing data and copy it to your fork.
-
-###### Process
-
-Describe the purpose and background of your visualisation in your fork’s readme.
-Portray your data and list the d3 features.
-
-Start writing code.  Feel free to use example code found on the web but make
-sure to include correct citations.  Use inline code comments to describe
-anything of interest.  Don’t forget to document your process.
-
-###### Review
-
-Finish up your readme and review your project.  Audit the code and docs.
-Evaluate whether the project matches our [rubric][] and make changes where
-needed.
-
-Include anything you’re particularly proud of and mention anything that was
-exceptionally hard to accomplish in your readme to make sure lecturers don’t
-miss it!  🌟
-
-[banner]: https://cdn.rawgit.com/cmda-fe3/logo/3b150735/banner-assessment-1.svg
-
-[a1]: https://github.com/cmda-fe3/course-17-18/tree/master/assessment-1#description
-
-[data]: https://github.com/cmda-fe3/course-17-18/tree/master/assessment-1#data
-
-[rubric]: https://github.com/cmda-fe3/course-17-18/tree/master/assessment-1#rubric
-
-[fe3]: https://github.com/cmda-fe3
-
-[cmda]: https://github.com/cmda
-
-[pages]: https://pages.github.com
+MIT Sam Guliker

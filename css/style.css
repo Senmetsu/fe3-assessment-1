@@ -1,0 +1,64 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+    box-sizing: border-box;
+
+}
+.center{
+  box-sizing: border-box;
+  display: flex;
+  width:100vw;
+  height:100vh;
+  margin:auto;
+  background:#AC6C82;
+}
+svg{
+  display: block;
+  margin:auto;
+}
+path{
+  opacity: 0;
+  animation: fade-in-bottom ease 0.4s forwards;
+  animation-delay:2s;
+}
+text{
+  opacity: 0;
+  fill:white;
+  animation: fade-in-right ease 0.4s forwards;
+  animation-delay:1s;
+}
+.temp{
+  transform: rotate(-90deg) !important;
+}
+
+.domain{
+  stroke:white;
+}
+line{
+  opacity: 0;
+  stroke:white;
+  animation: fade-in-bottom ease 0.4s forwards;
+  animation-delay:2s;
+}
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-in-bottom{
+  from{
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
