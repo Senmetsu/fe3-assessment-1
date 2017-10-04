@@ -15,7 +15,7 @@ Ik vindt het belangrijk dat er een structuur is die zichzelf uitlegt.
 
 ## Graph/chart keuze
 Aan de hand van mijn dataset (temperatuur) ben ik gaan kijken welke
-graph het beste erbij past. Ik kwam uit op de [line chart.] (https://bl.ocks.org/mbostock/3883245). Bij deze keuze was er geen V3, en kon ik alles in V4 aanpassen.
+graph het beste erbij past. Ik kwam uit op de [line chart.](https://bl.ocks.org/mbostock/3883245). Bij deze keuze was er geen V3, en kon ik alles in V4 aanpassen.
 
 ## Debuggen
 Ik moest meteen de dataset inplementatie veranderen naar mijn bijbehorde dataset.
