@@ -1,4 +1,4 @@
-# Assesment-1
+# Assessment-1
 
 ## Beschrijving
 De opdracht houdt in dat je een dataset pakt en die visueel maakt met D3.js
